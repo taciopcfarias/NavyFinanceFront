@@ -1,0 +1,48 @@
+/* Barra superior */
+.topbar{
+  height: 64px;
+  background: linear-gradient(90deg, #0b1328, #121c3a);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.logo{
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links{
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a{
+  color: #cfd8ff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.nav-links a:hover{
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.nav-links a.active{
+  background: #1f2b55;
+  color: white;
+}
+
+/* Conteúdo abaixo da barra */
+.page-content{
+  padding: 28px;
+  background: #f5f7fb;
+  min-height: calc(100vh - 64px);
+}

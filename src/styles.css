@@ -1,1 +1,256 @@
-/* You can add global styles to this file, and also import other style files */
+:host{
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+
+  --radius: 12px;
+  --shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+
+  /* slim */
+  --label: 11px;
+  --input-h: 34px;
+  --input-font: 13px;
+
+  --btn-h: 34px;
+  --btn-font: 13px;
+}
+
+/* ===== PAGE ===== */
+.mov-page{
+  padding: 16px 18px;
+  background: var(--bg);
+}
+
+/* ===== HEADER ===== */
+.page-header{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.title-area h1{
+  margin: 0;
+  font-size: 22px;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.title-area p{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== TOP FILTER ===== */
+.top-filter{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+}
+
+.top-filter label{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.top-filter input{
+  height: 30px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: 0 10px;
+  background: #fff;
+  outline: none;
+}
+
+.btn-small{
+  height: 30px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 12px;
+  color: #fff;
+  background: #1d4ed8;
+}
+.btn-small:hover{ background:#1e40af; }
+
+/* ===== CARD BASE ===== */
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(229,231,235,0.8);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.card-title{
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ===== NOVO LANÇAMENTO SLIM ===== */
+.novo-lancamento{
+  padding: 14px;
+}
+
+.novo-lancamento .form-row{
+  display: grid;
+  grid-template-columns: 120px 150px 120px 120px 150px 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.novo-lancamento .form-row select,
+.novo-lancamento .form-row input{
+  height: 34px;
+  font-size: 13px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  outline: none;
+  min-width: 0;
+}
+
+.novo-lancamento .form-row select:focus,
+.novo-lancamento .form-row input:focus{
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+.novo-lancamento .form-row .valor{
+  max-width: 130px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary{
+  height: var(--btn-h);
+  padding: 0 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: var(--btn-font);
+  background: #0f2d59;
+  color: #fff;
+  white-space: nowrap;
+}
+.btn-primary:hover{ background:#163a73; }
+
+.btn-secondary{
+  height: var(--btn-h);
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  font-weight: 800;
+  font-size: var(--btn-font);
+  background: #fff;
+  color: var(--text);
+}
+.btn-secondary:hover{ background:#f8fafc; }
+
+/* ===== TABLE ===== */
+.table-header h3{
+  margin: 0 0 10px;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+thead th{
+  text-align: left;
+  font-size: 12px;
+  color: var(--muted);
+  background: #f8fafc;
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+tbody td{
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+tbody tr:hover{ background:#fafcff; }
+
+.badge{
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.badge.entrada{ background:#dcfce7; color:#166534; }
+.badge.saida{ background:#fee2e2; color:#991b1b; }
+
+.row-actions{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-edit, .btn-delete{
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  background: #fff;
+}
+.btn-edit:hover{ background:#f8fafc; }
+.btn-delete{ color:#b91c1c; }
+.btn-delete:hover{ background:#fef2f2; }
+
+.empty{
+  text-align: center;
+  color: var(--muted);
+  padding: 14px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1100px){
+  .page-header{ flex-direction: column; align-items: stretch; }
+  .top-filter{ width: fit-content; }
+
+  .novo-lancamento .form-row{
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+  }
+
+  .novo-lancamento .form-row .valor{
+    max-width: none;
+  }
+}
+
+@media (max-width: 680px){
+  .novo-lancamento .form-row{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+

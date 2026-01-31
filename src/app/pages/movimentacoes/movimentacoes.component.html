@@ -1,0 +1,115 @@
+<div class="mov-page">
+
+  <!-- ===== HEADER COM FILTRO DISCRETO ===== -->
+  <div class="page-header">
+    <div class="title-area">
+      <h1>💰 Movimentações</h1>
+      <p>Controle de entradas e saídas do jetski</p>
+    </div>
+
+    <div class="top-filter">
+      <label>
+        De
+        <input type="date" [(ngModel)]="dataInicio">
+      </label>
+
+      <label>
+        Até
+        <input type="date" [(ngModel)]="dataFim">
+      </label>
+
+      <button class="btn-small" (click)="buscar()">Buscar</button>
+    </div>
+  </div>
+
+  <!-- ===== CARD NOVO LANÇAMENTO ===== -->
+  <div class="card novo-lancamento">
+    <h3 class="card-title">📋 Novo lançamento</h3>
+
+    <div class="form-row">
+      <select [(ngModel)]="tipo" (change)="onTipoChange()">
+        <option value="ENTRADA">Entrada</option>
+        <option value="SAIDA">Saída</option>
+      </select>
+
+      <select [(ngModel)]="categoria">
+        <option value="ALUGUEL">Aluguel</option>
+        <option value="MANUTENCAO">Manutenção</option>
+        <option value="COMISSAO">Comissão</option>
+        <option value="PAGAMENTO">Pagamento</option>
+        <option value="OUTROS">Outros</option>
+      </select>
+
+      <select [(ngModel)]="formaPagamento">
+        <option value="PIX">PIX</option>
+        <option value="DINHEIRO">Dinheiro</option>
+        <option value="CARTAO">Cartão</option>
+      </select>
+
+      <input class="valor" type="number" placeholder="Valor" [(ngModel)]="valor" />
+
+      <input type="date" [(ngModel)]="data" />
+
+      <input type="text" placeholder="Obs" [(ngModel)]="observacao" />
+
+      <button class="btn-primary" (click)="salvar()">Salvar</button>
+    </div>
+  </div>
+
+  <!-- ===== TABELA ===== -->
+  <div class="card table-card">
+
+    <div class="table-header">
+      <h3 class="card-title">📋 Lançamentos</h3>
+    </div>
+
+    <p *ngIf="carregando" class="loading">Carregando...</p>
+
+    <table *ngIf="!carregando">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Tipo</th>
+          <th>Categoria</th>
+          <th>Forma Pgto</th>
+          <th>Valor</th>
+          <th>Obs</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let m of itens">
+          <td>{{ m.data | date:'dd/MM/yyyy' }}</td>
+
+          <td>
+            <span class="badge" [ngClass]="m.tipo === 'ENTRADA' ? 'entrada' : 'saida'">
+              {{ m.tipo }}
+            </span>
+          </td>
+
+          <td>{{ m.categoria }}</td>
+          <td>{{ m.formaPagamento }}</td>
+          <td>{{ m.valor | currency:'BRL' }}</td>
+          <td>{{ m.observacao || '-' }}</td>
+
+          <!-- trocado de actions para row-actions -->
+          <td class="row-actions">
+            <button class="btn-edit" (click)="editar(m)">Editar</button>
+            <button class="btn-delete" (click)="deletar(m.id)">Excluir</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="itens.length === 0">
+          <td colspan="7" class="empty">Nenhuma movimentação encontrada.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+
+
+
